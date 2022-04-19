@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String  @unique
+  password String
+  cart Cart[]
+}
+
+model Genre {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  album Album[]
+}
+
+model Album {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  band        String
+  price       Int
+  SpotifyUUID String
+  TrackList   String
+  ImageUrl    String
+  genreId     Int
+  genre       Genre  @relation(fields: [genreId], references: [id])
+  cart        Cart[]
+}
+
+model Cart {
+  id          Int    @id @default(autoincrement())
+  review     String
+  rating     Int
+  wishlist   Boolean
+  albumId    Int
+  userId     Int
+  album      Album    @relation(fields: [albumId], references: [id])
+  user       User @relation(fields: [userId], references: [id])
+
+}
