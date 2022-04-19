@@ -9,26 +9,26 @@ datasource db {
 
 model User {
   id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String  @unique
-  password String
+  email String  @unique @db.VarChar(255)
+  name  String  @unique @db.VarChar(255)
+  password String @db.VarChar(255)
   cart Cart[]
 }
 
 model Genre {
   id    Int     @id @default(autoincrement())
-  name  String  @unique
+  name  String  @unique @db.VarChar(255)
   album Album[]
 }
 
 model Album {
   id          Int    @id @default(autoincrement())
-  name        String @unique
-  band        String
+  name        String @unique @db.VarChar(255)
+  band        String @db.VarChar(255)
   price       Int
-  SpotifyUUID String
-  TrackList   String
-  ImageUrl    String
+  SpotifyUUID String @db.VarChar(255)
+  TrackList   String @db.VarChar(255)
+  ImageUrl    String @db.VarChar(255)
   genreId     Int
   genre       Genre  @relation(fields: [genreId], references: [id])
   cart        Cart[]
@@ -36,12 +36,18 @@ model Album {
 
 model Cart {
   id          Int    @id @default(autoincrement())
-  review     String
+  review     String @db.VarChar(255)
   rating     Int
-  wishlist   Boolean
   albumId    Int
   userId     Int
+  status  status  @default(pending)
   album      Album    @relation(fields: [albumId], references: [id])
   user       User @relation(fields: [userId], references: [id])
 
+}
+
+enum status {
+  cancel
+  pending
+  paid
 }
