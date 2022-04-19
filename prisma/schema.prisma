@@ -24,10 +24,9 @@ model Genre {
 model Album {
   id          Int    @id @default(autoincrement())
   name        String @unique @db.VarChar(255)
-  band        String @db.VarChar(255)
+  artist      String @db.VarChar(255)
   price       Int
   SpotifyUUID String @db.VarChar(255)
-  TrackList   String @db.VarChar(255)
   ImageUrl    String @db.VarChar(255)
   genreId     Int
   genre       Genre  @relation(fields: [genreId], references: [id])
@@ -38,9 +37,10 @@ model Cart {
   id          Int    @id @default(autoincrement())
   review     String @db.VarChar(255)
   rating     Int
+  total     Int
+  status  status  @default(pending)
   albumId    Int
   userId     Int
-  status  status  @default(pending)
   album      Album    @relation(fields: [albumId], references: [id])
   user       User @relation(fields: [userId], references: [id])
 

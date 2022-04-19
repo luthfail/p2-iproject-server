@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/luthfail/p2-iproject-server.git"
   },
+  "prisma": {
+    "seed": "node ./prisma/seed.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
