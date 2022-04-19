@@ -23,10 +23,9 @@ CREATE TABLE "Genre" (
 CREATE TABLE "Album" (
     "id" SERIAL NOT NULL,
     "name" VARCHAR(255) NOT NULL,
-    "band" VARCHAR(255) NOT NULL,
+    "artist" VARCHAR(255) NOT NULL,
     "price" INTEGER NOT NULL,
     "SpotifyUUID" VARCHAR(255) NOT NULL,
-    "TrackList" VARCHAR(255) NOT NULL,
     "ImageUrl" VARCHAR(255) NOT NULL,
     "genreId" INTEGER NOT NULL,
 
@@ -38,9 +37,10 @@ CREATE TABLE "Cart" (
     "id" SERIAL NOT NULL,
     "review" VARCHAR(255) NOT NULL,
     "rating" INTEGER NOT NULL,
+    "total" INTEGER NOT NULL,
+    "status" "status" NOT NULL DEFAULT E'pending',
     "albumId" INTEGER NOT NULL,
     "userId" INTEGER NOT NULL,
-    "status" "status" NOT NULL DEFAULT E'pending',
 
     CONSTRAINT "Cart_pkey" PRIMARY KEY ("id")
 );
