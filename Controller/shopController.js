@@ -62,26 +62,28 @@ class ShopController {
                 } else {
                     const response = await prisma.cart.create({
                         data: {
+                            total: findAlbum.price,
                             userId: +req.user.id,
                             albumId: +id,
+                            status: 'pending'
                         }
                     })
-                    res.status(200).json(response)
+                    res.status(201).json(response)
                 }
             }
         } catch (error) {
             console.log(error)
+            next(error)
         }
     }
 
     static async viewMyCart(req, res, next) {
+        console.log('mashok')
         try {
             const response = await prisma.cart.findMany({
                 where: {
-                    user: {
-                        id: req.user.id,
-                        status: 'pending'
-                    }
+                    userId: +req.user.id,
+                    status: 'pending'
                 },
                 include: {
                     album: true
@@ -92,6 +94,7 @@ class ShopController {
             }
             res.status(200).json(response)
         } catch (error) {
+            console.log(error)
             next(error)
         }
     }

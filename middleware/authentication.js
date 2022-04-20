@@ -17,14 +17,13 @@ const authorization = async (req, res, next) => {
             })
             if(!user) {
                 throw ({ name: 'Invalid token'})
-            } else {
+            }
                 req.user = {
                     id: user.id,
                     email: user.email
                 }
-                next()
-            }
-
+            console.log('masuk auth')
+            next()
         }
     } catch (error) {
         next(error)
