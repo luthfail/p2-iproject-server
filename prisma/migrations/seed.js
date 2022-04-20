@@ -1,13 +1,12 @@
 const album = require('./album.json');
-const genre = require('./category.json');
 const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
 async function main() {
-    for (let genres of genre) {
-        await prisma.genre.create({
-            data: genres,
+    for (let albums of album) {
+        await prisma.album.create({
+            data: albums,
         });
     }
 

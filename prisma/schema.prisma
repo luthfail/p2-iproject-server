@@ -15,11 +15,6 @@ model User {
   cart Cart[]
 }
 
-model Genre {
-  id    Int     @id @default(autoincrement())
-  name  String  @unique @db.VarChar(255)
-  album Album[]
-}
 
 model Album {
   id          Int    @id @default(autoincrement())
@@ -28,15 +23,12 @@ model Album {
   price       Int
   SpotifyUUID String @db.VarChar(255)
   ImageUrl    String @db.VarChar(255)
-  genreId     Int
-  genre       Genre  @relation(fields: [genreId], references: [id])
+  genre       String @db.VarChar(255)
   cart        Cart[]
 }
 
 model Cart {
   id          Int    @id @default(autoincrement())
-  review     String @db.VarChar(255)
-  rating     Int
   total     Int
   status  status  @default(pending)
   albumId    Int
@@ -47,7 +39,6 @@ model Cart {
 }
 
 enum status {
-  cancel
   pending
   paid
 }

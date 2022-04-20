@@ -5,7 +5,7 @@
     "price": 100000,
     "SpotifyUUID":"1Xsprdt1q9rOzTic7b9zYM",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2737af5fdc5ef048a68db62b85f",
-    "genreId": 1
+    "genre": "Pop"
     },
 
     {
@@ -14,7 +14,7 @@
     "price": 80000,
     "SpotifyUUID":"5bwoCpDhski3iIxwsdgPTM",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273e7d13eb0e3c1032e4f8dfc93",
-    "genreId": 2
+    "genre": "Alternative"
     },
 
     {
@@ -23,7 +23,7 @@
     "price": 90000,
     "SpotifyUUID":"65sHj9PvsbyD0uugGHjueN",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b27323473d8f0c8669583307532e",
-    "genreId": 2
+    "genre": "Alternative"
     },
 
     {
@@ -32,7 +32,7 @@
     "price": 100000,
     "SpotifyUUID":"3OsjveYa3ODxbAHuoZp7MS",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2739f5c5e06d31160668cd48c22",
-    "genreId": 3
+    "genre": "J-Pop"
     },
 
     {
@@ -41,7 +41,7 @@
     "price": 120000,
     "SpotifyUUID":"4sTehljxd3DNsjHWx3a64L",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273189e41798cd255d340b21be9",
-    "genreId": 3
+    "genre": "J-Pop"
     },
 
     {
@@ -50,7 +50,7 @@
     "price": 90000,
     "SpotifyUUID":"1ITjhViDumL9llxAJYdKiC",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2732112db8aa9dabc6cdd9e14d0",
-    "genreId": 1
+    "genre": "Alternative"
     },
 
     {
@@ -59,7 +59,7 @@
     "price": 160000,
     "SpotifyUUID":"4m2880jivSbbyEGAKfITCa",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2731d97ca7376f835055f828139",
-    "genreId":"4"
+    "genre":"Pop"
     },
 
     {
@@ -68,7 +68,7 @@
     "price": 100000,
     "SpotifyUUID":"1c9Sx7XdXuMptGyfCB6hHs",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273dbd83e179619408e5d05cc99",
-    "genreId": 3
+    "genre": "Pop"
     },
 
     {
@@ -76,8 +76,8 @@
     "artist":"Coldplay",
     "price": 90000,
     "SpotifyUUID":"2G4AUqfwxcV1UdQjm2ouYr",
-    "ImageUrl":"69.87.74.136",
-    "genreId": 3
+    "ImageUrl":"6https://i.scdn.co/image/ab67616d0000b273f864bcdcc245f06831d17ae0",
+    "genre": "Alternative"
     },
 
     {
@@ -86,7 +86,7 @@
     "price": 140000,
     "SpotifyUUID":"32iAEBstCjauDhyKpGjTuq",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273ef24c3fdbf856340d55cfeb2",
-    "genreId": 3
+    "genre": "Pop"
     },
 
     {
@@ -95,7 +95,7 @@
     "price": 90000,
     "SpotifyUUID":"6FM2zi33hm46NY9mk5jIV8",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2732d8f69516a51d1b98cce0f07",
-    "genreId": 3
+    "genre": "Pop"
     },
 
     {
@@ -104,7 +104,7 @@
     "price": 180000,
     "SpotifyUUID":"6YMSXPIHkA2jPIlFHuejXW",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273c379325088c2845fe85cd70a",
-    "genreId": 3
+    "genre": "Pop"
     },
 
     {
@@ -113,7 +113,7 @@
     "price": 200000,
     "SpotifyUUID":"4OHNH3sDzIxnmUADXzv2kT",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2739c284a6855f4945dc5a3cd73",
-    "genreId": 3
+    "genre": "Alternative"
     },
 
     {
@@ -122,7 +122,7 @@
     "price": 190000,
     "SpotifyUUID":"336m0kejdM5Fkw2HUX46Bw",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273b56ada0ba61d7787fb213f7",
-    "genreId": 3
+    "genre": "J-Pop"
     },
 
     {
@@ -131,7 +131,7 @@
     "price": 250000,
     "SpotifyUUID":"6dVIqQ8qmQ5GBnJ9shOYGE",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856",
-    "genreId": 2
+    "genre": "Alternative"
     },
 
     {
@@ -140,7 +140,7 @@
     "price": 90000,
     "SpotifyUUID":"40iKWzfGlk2MC4xr7A9Go3",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2739e9cf34256a792f973023cff",
-    "genreId": 1
+    "genre": "Pop"
     },
 
     {
@@ -149,7 +149,7 @@
     "price": 200000,
     "SpotifyUUID":"2gNPnKP1PDkB5SZz3IMKuX",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b2731895052324f123becdd0d53d",
-    "genreId": 4
+    "genre": "K-Pop"
     },
 
     {
@@ -158,6 +158,6 @@
     "price": 300000,
     "SpotifyUUID":"5052Ip89wdW8EGdpjEpNeq",
     "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273c11578f0d39a2d639a92046d",
-    "genreId": 4
+    "genre": "K-Pop"
     }
 ]
