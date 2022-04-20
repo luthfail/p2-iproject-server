@@ -1,5 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
-const XenditInvoice = require('../API/xendit')
+// const XenditInvoice = require('../API/xendit')
 const SpotifyApi = require('../API/spotify')
 const prisma = new PrismaClient();
 
@@ -42,22 +42,35 @@ class ShopController {
             const findAlbum = await prisma.album.findUnique({
                 where: {
                     id: +id
-                }
+                },
             })
             if(!findAlbum) {
-                throw ({ name: 'Album not found'})
+                throw({ name: 'Album not found' })
             } else {
-                const response = await prisma.cart.create({
-                    data: {
-                        total: findAlbum.price,
-                        albumId: findAlbum.id,
-                        userId: req.user.id
+                const findCart = await prisma.cart.findMany({
+                    where: {
+                        user: {
+                            id: +req.user.id
+                        },
+                        album: {
+                            id: +id
+                        }
                     }
                 })
-                res.status(201).json(response)
+                if(findCart.length > 0) {
+                    throw({ name: 'Album already in cart' })
+                } else {
+                    const response = await prisma.cart.create({
+                        data: {
+                            userId: +req.user.id,
+                            albumId: +id,
+                        }
+                    })
+                    res.status(200).json(response)
+                }
             }
         } catch (error) {
-            next(error)
+            console.log(error)
         }
     }
 
