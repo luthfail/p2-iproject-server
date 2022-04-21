@@ -128,10 +128,6 @@ class ShopController {
             next(error)
         }
     }
-
-    static buyAllXendit(req, res, next) {
-        console.log(req.body.status)
-    }
 }
 
 module.exports = ShopController;

@@ -27,7 +27,6 @@ CREATE TABLE "Album" (
 -- CreateTable
 CREATE TABLE "Cart" (
     "id" SERIAL NOT NULL,
-    "total" INTEGER NOT NULL,
     "status" "status" NOT NULL DEFAULT E'pending',
     "albumId" INTEGER NOT NULL,
     "userId" INTEGER NOT NULL,
