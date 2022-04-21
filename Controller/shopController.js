@@ -47,19 +47,6 @@ class ShopController {
             if(!findAlbum) {
                 throw({ name: 'Album not found' })
             } else {
-                const findCart = await prisma.cart.findMany({
-                    where: {
-                        user: {
-                            id: +req.user.id
-                        },
-                        album: {
-                            id: +id
-                        }
-                    }
-                })
-                if(findCart.length > 0) {
-                    throw({ name: 'Album already in cart' })
-                } else {
                     const response = await prisma.cart.create({
                         data: {
                             userId: +req.user.id,
@@ -68,7 +55,6 @@ class ShopController {
                         }
                     })
                     res.status(201).json(response)
-                }
             }
         } catch (error) {
             next(error)
@@ -112,18 +98,24 @@ class ShopController {
             const totalPrice = response.reduce((acc, curr) => {
                 return acc + curr.album.price
             }, 0)
-            const xenditInvoice = await XenditInvoice.createInvoice(totalPrice)
+            const User = await prisma.user.findUnique({
+                where : {
+                    id: +req.user.id
+                }
+            })
+            console.log(User.id)
+            const xenditInvoice = await XenditInvoice.createInvoice(User.id+'', totalPrice, User)
+            console.log(xenditInvoice)
             const updateCart = await prisma.cart.updateMany({
                 where: {
                     userId: +req.user.id,
                     status: 'pending'
                 },
                 data: {
-                    status: 'paid',
-                    invoiceId: xenditInvoice.id
+                    status: 'paid'
                 }
             })
-            res.status(200).json(updateCart)
+            res.status(200).json(xenditInvoice.invoice_url)
         } catch (error) {
             next(error)
         }

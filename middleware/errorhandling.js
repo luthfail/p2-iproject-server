@@ -1,4 +1,5 @@
 const errorHandler = (err, req, res, next) => {
+    console.log(err)
     switch(err.name) {
         case 'Email is required':
         case 'Name is required':

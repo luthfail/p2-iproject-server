@@ -8,10 +8,11 @@ const invoice = new Invoice({});
 
 class XenditInvoice {
   static createInvoice(externalID, amount, customer) {
+    console.log(process.env.XENDIT_SECRET)
     return invoice.createInvoice({
       externalID: externalID,
       amount,
-      successRedirectURL: "http://localhost:3000/callback",
+      successRedirectURL: "https://jajan-vinyl.web.app/",
       payerEmail: customer.email,
     });
   }
