@@ -29,7 +29,6 @@ model Album {
 
 model Cart {
   id          Int    @id @default(autoincrement())
-  total     Int
   status  status  @default(pending)
   albumId    Int
   userId     Int

@@ -76,7 +76,7 @@
     "artist":"Coldplay",
     "price": 90000,
     "SpotifyUUID":"2G4AUqfwxcV1UdQjm2ouYr",
-    "ImageUrl":"6https://i.scdn.co/image/ab67616d0000b273f864bcdcc245f06831d17ae0",
+    "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273f864bcdcc245f06831d17ae0",
     "genre": "Alternative"
     },
 
@@ -121,7 +121,7 @@
     "artist":"Aimer",
     "price": 190000,
     "SpotifyUUID":"336m0kejdM5Fkw2HUX46Bw",
-    "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273b56ada0ba61d7787fb213f7",
+    "ImageUrl":"https://i.scdn.co/image/ab67616d0000b273b56ada0ba61d7787fb213f72",
     "genre": "J-Pop"
     },
 

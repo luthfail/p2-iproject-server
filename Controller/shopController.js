@@ -1,5 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
-// const XenditInvoice = require('../API/xendit')
+const XenditInvoice = require('../API/xendit')
 const SpotifyApi = require('../API/spotify')
 const prisma = new PrismaClient();
 
@@ -62,7 +62,6 @@ class ShopController {
                 } else {
                     const response = await prisma.cart.create({
                         data: {
-                            total: findAlbum.price,
                             userId: +req.user.id,
                             albumId: +id,
                             status: 'pending'
@@ -72,13 +71,11 @@ class ShopController {
                 }
             }
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }
 
     static async viewMyCart(req, res, next) {
-        console.log('mashok')
         try {
             const response = await prisma.cart.findMany({
                 where: {
@@ -94,38 +91,39 @@ class ShopController {
             }
             res.status(200).json(response)
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }
 
     static async buyAll(req, res, next) {
         try {
-            const findCart = await prisma.cart.findMany({
+            const response = await prisma.cart.findMany({
                 where: {
-                    user: {
-                        id: req.user.id
-                    }
+                    userId: +req.user.id,
+                    status: 'pending'
                 },
                 include: {
                     album: true
                 }
             })
-            if(!findCart) {
-                throw({ name: 'Cart not found' })
-            } else {
-                const response = await prisma.cart.updateMany({
-                    where: {
-                        user: {
-                            id: req.user.id
-                        }
-                    },
-                    data: {
-                        status: 'paid'
-                    }
-                })
-                res.status(200).json(response)
+            if(!response) {
+                throw ({name: 'Cart not found'})
             }
+            const totalPrice = response.reduce((acc, curr) => {
+                return acc + curr.album.price
+            }, 0)
+            const xenditInvoice = await XenditInvoice.createInvoice(totalPrice)
+            const updateCart = await prisma.cart.updateMany({
+                where: {
+                    userId: +req.user.id,
+                    status: 'pending'
+                },
+                data: {
+                    status: 'paid',
+                    invoiceId: xenditInvoice.id
+                }
+            })
+            res.status(200).json(updateCart)
         } catch (error) {
             next(error)
         }

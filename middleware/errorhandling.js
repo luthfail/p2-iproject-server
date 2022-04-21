@@ -17,10 +17,21 @@ const errorHandler = (err, req, res, next) => {
                 error: err.name
             })
             break
+        case 'Album already in cart':
+            res.status(403).json({
+                error: err.name
+            })
+            break
         case 'Cart not found':
             res.status(404).json({
                 error: err.name
             })
+            break
+        default:
+            res.status(500).json({
+                error: "internal server error"
+            })
+            break;
     }
 }
 

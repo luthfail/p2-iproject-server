@@ -60,6 +60,7 @@ class UserController {
                     const token = createToken(payload)
                     const response = {
                         access_token: token,
+                        name: findUser.name,
                         id: findUser.id,
                         email: findUser.email
                     }

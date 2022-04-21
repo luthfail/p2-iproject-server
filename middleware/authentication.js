@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client')
 const { verifyToken } = require('../helper/jwt')
 const prisma = new PrismaClient()
 
-const authorization = async (req, res, next) => {
+const authentication = async (req, res, next) => {
     try {
         const { access_token } = req.headers
         if(!access_token) {
@@ -22,7 +22,6 @@ const authorization = async (req, res, next) => {
                     id: user.id,
                     email: user.email
                 }
-            console.log('masuk auth')
             next()
         }
     } catch (error) {
@@ -30,4 +29,4 @@ const authorization = async (req, res, next) => {
     }
 }
 
-module.exports = authorization
+module.exports = authentication
